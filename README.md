@@ -19,15 +19,16 @@ Ensure the following are installed:
 ```bash
 git clone https:[//github.com//challenge-regression.git](https://github.com/Mohammedhussingh/catBoost)
 cd challenge-regression
+```
 
 
-## Usage
+### Usage
 
 ### Run the Script
 Execute the model training pipeline with the following command:
 ```bash
 python main.py
-
+```
 
 ### Personal Insights
 - **Biggest Challenge**: Identifying and engineering impactful features.
