@@ -18,7 +18,7 @@ Ensure the following are installed:
 ### Clone the Repository
 ```bash
 git clone https:[//github.com//challenge-regression.git](https://github.com/Mohammedhussingh/catBoost)
-cd challenge-regression
+
 ```
 
 
