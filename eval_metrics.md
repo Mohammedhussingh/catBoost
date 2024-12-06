@@ -4,7 +4,7 @@ The CatBoostRegressor is optimized for high performance and can handle categoric
 # Data Features:
 A total of 10,684 data records have been cleaned of outliers, and there are no missing or non-values, with 18 features( 5 engineerd):
 
-1. **Price(Target)**: The dependent variable you're trying to predict, representing the cost of a property.
+1. **Price (Target)**: The dependent variable you're trying to predict, representing the cost of a property.
 
 2. **Bedrooms**: The number of bedrooms in the property. More bedrooms typically correlate with higher property prices.
 
@@ -72,7 +72,7 @@ My modeld saved in model_Hussain.joblib  with parametrs chosen based on hyperpar
 
 The following bar chart displays the importance of different features in predicting the target variable (Price). Features like **Living_Area**, **Locality_encoded**, and **State** have the highest importance, while **Garden** and **Is_Equiped_Kitchen** have lower importance.
 
-
+![normalized_shap_importance_with_labels](https://github.com/user-attachments/assets/17c7ea87-8ef6-4bff-b74e-1527cc9c608e)
 ## SHAP Feature Importances
 
 The following features have the most significant impact on the model's output, based on their mean SHAP values:
@@ -92,7 +92,7 @@ Other notable features include:
 - **Type_encoded**, **Prov_encoded**, **Is_Equiped_Kitchen**, **Garden**, and **Is_On_Coast** have a relatively minimal impact.
 
 ### Visual Representation
-![normalized_shap_importance_with_labels](https://github.com/user-attachments/assets/17c7ea87-8ef6-4bff-b74e-1527cc9c608e)
+
 
 
 ![e325bc1a-fb74-4e9a-aba7-6a46b550ad6b](https://github.com/user-attachments/assets/796485c8-d62d-46e2-ab01-e15047591959)
