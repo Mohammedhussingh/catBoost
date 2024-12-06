@@ -2,7 +2,8 @@
 The CatBoostRegressor is optimized for high performance and can handle categorical data well, but in your case, it is being used with numerical data (since it’s a regression task and based on the requirements of the project). The used data is calculated from the data-extracting features phase.
 
 # Data Features:
-A total of 10,684 data records have been cleaned of outliers, and there are no missing or non-values, with 18 features( 5 engineerd):.
+A total of 10,684 data records have been cleaned of outliers, and there are no missing or non-values, with 18 features( 5 engineerd):
+
     1. **Price(Target)**: The dependent variable you're trying to predict, representing the cost of a property.
     
     2. **Bedrooms**: The number of bedrooms in the property. More bedrooms typically correlate with higher property prices.
