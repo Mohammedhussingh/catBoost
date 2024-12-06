@@ -4,41 +4,41 @@ The CatBoostRegressor is optimized for high performance and can handle categoric
 # Data Features:
 A total of 10,684 data records have been cleaned of outliers, and there are no missing or non-values, with 18 features( 5 engineerd):
 
-    1. **Price(Target)**: The dependent variable you're trying to predict, representing the cost of a property.
-    
-    2. **Bedrooms**: The number of bedrooms in the property. More bedrooms typically correlate with higher property prices.
-    
-    3. **Living_Area**: The size of the living space in the property (e.g., square meters). Larger living areas generally increase property price.
-    
-    4. **Is_Equiped_Kitchen**: A binary feature indicating whether the property has an equipped kitchen. Properties with an equipped kitchen can be valued higher.
-    
-    5. **Terrace**: A binary feature indicating if the property has a terrace. This can add value, depending on the property location.
-    
-    6. **Garden**: A binary feature indicating the presence of a garden. Similar to terrace, gardens can increase a property’s value.
-    
-    7. **State**: Refers to the condition of the property (e.g., new, refurbished, or old). The state of the property influences its market price.
-    
-    8. **Facades**: The number of building facades or exterior walls. More facades could indicate a larger or more aesthetically desirable property.
-    
-    9. **Locality_encoded**: A numerical encoding of the property’s locality, which helps represent the location's impact on the price.
-    
-    10. **Type_encoded**: Encodes the property type (e.g., apartment, house), which can significantly affect its price.
-    
-    11. **SubType_encoded**: Encodes the specific subtype of the property (e.g., duplex, penthouse), which also influences pricing.
-    
-    12. **Prov_encoded**: Encodes the province or region within a country where the property is located, which may influence the price due to local economic conditions.
-    
-    13. **Region_encoded**: Similar to the province but might refer to a larger geographical area (e.g., urban vs rural).
-    
-    14. **Is_On_Coast**(engineerd):: A binary feature indicating whether the property is located on the coast. Coastal properties often have higher prices due to location desirability.
-    
-    15. **GDP**(engineerd):: The Gross Domestic Product of the province, reflecting the overall economic health of the place, which could influence property prices.
-    
-    16. **Avg_rent**(engineerd): The average rental price in the area. Higher average rents typically indicate higher property values .
-    
-    17. **Avg price**(engineerd):: The average price of properties in the locality or region. It gives a reference for pricing trends (obtained from an external source, not from the data itself).
-    
-    18. **Bedrooms_per_area**(engineerd):: The ratio of the number of bedrooms to the living area, which can affect property price by indicating space efficiency.
+1. **Price(Target)**: The dependent variable you're trying to predict, representing the cost of a property.
+
+2. **Bedrooms**: The number of bedrooms in the property. More bedrooms typically correlate with higher property prices.
+
+3. **Living_Area**: The size of the living space in the property (e.g., square meters). Larger living areas generally increase property price.
+
+4. **Is_Equiped_Kitchen**: A binary feature indicating whether the property has an equipped kitchen. Properties with an equipped kitchen can be valued higher.
+
+5. **Terrace**: A binary feature indicating if the property has a terrace. This can add value, depending on the property location.
+
+6. **Garden**: A binary feature indicating the presence of a garden. Similar to terrace, gardens can increase a property’s value.
+
+7. **State**: Refers to the condition of the property (e.g., new, refurbished, or old). The state of the property influences its market price.
+
+8. **Facades**: The number of building facades or exterior walls. More facades could indicate a larger or more aesthetically desirable property.
+
+9. **Locality_encoded**: A numerical encoding of the property’s locality, which helps represent the location's impact on the price.
+
+10. **Type_encoded**: Encodes the property type (e.g., apartment, house), which can significantly affect its price.
+
+11. **SubType_encoded**: Encodes the specific subtype of the property (e.g., duplex, penthouse), which also influences pricing.
+
+12. **Prov_encoded**: Encodes the province or region within a country where the property is located, which may influence the price due to local economic conditions.
+
+13. **Region_encoded**: Similar to the province but might refer to a larger geographical area (e.g., urban vs rural).
+
+14. **Is_On_Coast**(engineerd):: A binary feature indicating whether the property is located on the coast. Coastal properties often have higher prices due to location desirability.
+
+15. **GDP**(engineerd):: The Gross Domestic Product of the province, reflecting the overall economic health of the place, which could influence property prices.
+
+16. **Avg_rent**(engineerd): The average rental price in the area. Higher average rents typically indicate higher property values .
+
+17. **Avg price**(engineerd):: The average price of properties in the locality or region. It gives a reference for pricing trends (obtained from an external source, not from the data itself).
+
+18. **Bedrooms_per_area**(engineerd): The ratio of the number of bedrooms to the living area, which can affect property price by indicating space efficiency.
 
 
 
