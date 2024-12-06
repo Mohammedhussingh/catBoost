@@ -72,7 +72,7 @@ My modeld saved in model_Hussain.joblib  with parametrs chosen based on hyperpar
 
 The following bar chart displays the importance of different features in predicting the target variable (Price). Features like **Living_Area**, **Locality_encoded**, and **State** have the highest importance, while **Garden** and **Is_Equiped_Kitchen** have lower importance.
 
-![Feature Importances](sandbox:/mnt/data/d.png)
+
 ## SHAP Feature Importances
 
 The following features have the most significant impact on the model's output, based on their mean SHAP values:
@@ -92,9 +92,11 @@ Other notable features include:
 - **Type_encoded**, **Prov_encoded**, **Is_Equiped_Kitchen**, **Garden**, and **Is_On_Coast** have a relatively minimal impact.
 
 ### Visual Representation
-![SHAP Importance](./image.png)
+![normalized_shap_importance_with_labels](https://github.com/user-attachments/assets/17c7ea87-8ef6-4bff-b74e-1527cc9c608e)
 
-![Gemiddelde vastgoedprijzen per provincie in België](average_prices_belgium.png)
+
+
+
 
 
 ### The model performance:
