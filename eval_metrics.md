@@ -58,7 +58,6 @@ The model is saved as `model_Hussain.joblib`. Parameters were chosen based on hy
 - **l2_leaf_reg=10**: Regularization to prevent overfitting.
 - **min_data_in_leaf=10**: Minimum samples in each leaf to avoid noise-fitting.
 
-- 
 ### Feature Importances:
 Feature importance analysis highlights:
 1. **Living_Area**: Most significant, mean SHAP value 0.19.
@@ -66,7 +65,7 @@ Feature importance analysis highlights:
 3. **SubType_encoded**, **Bedrooms**, **Avg_rent**, and **Avg_price**: SHAP value 0.05.
 4. **Locality_encoded**, **Facades**, **Region_encoded**, and **GDP**: Moderate importance.
 5. **Type_encoded**, **Is_Equiped_Kitchen**, and others: Minimal impact.
-6. 
+   
 ![shap_importance_with_labels](https://github.com/user-attachments/assets/f72c949f-c558-4f35-8f6a-64be9408d62f)
 
 
