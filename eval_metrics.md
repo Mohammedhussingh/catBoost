@@ -66,8 +66,9 @@ Feature importance analysis highlights:
 4. **Locality_encoded**, **Facades**, **Region_encoded**, and **GDP**: Moderate importance.
 5. **Type_encoded**, **Is_Equiped_Kitchen**, and others: Minimal impact.
    
-![shap_importance_with_labels](https://github.com/user-attachments/assets/f72c949f-c558-4f35-8f6a-64be9408d62f)
 
+
+![normalized_shap_importance_with_labels](https://github.com/user-attachments/assets/a9ba3c77-afbb-4be2-91cb-291d2ff3b3cc)
 
 ![e325bc1a-fb74-4e9a-aba7-6a46b550ad6b](https://github.com/user-attachments/assets/90b6a3e8-221b-433f-b017-299c53033d7d)
 
