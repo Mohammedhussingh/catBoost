@@ -96,3 +96,6 @@ The test data's **R²** of 0.7134 indicates a moderate fit, while the **MAE** an
 - **Training Performance**: 4.3 seconds (all data are numerical).
 - **Cross-validation** (for all model parameters, at least 4 values per parameter) & **Hyperparameter Tuning**: 3-7 minutes.
 - **Prediction**: Instant.
+
+## Note:
+While the model is suitable and performs well, the scale and quality of the data—or potentially the techniques used for data collection—limit its effectiveness. This is a key weakness of the model. With access to better-quality data, significantly improved performance could be achieved.
