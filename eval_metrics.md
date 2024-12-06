@@ -1,12 +1,12 @@
 # Project Overview: Predicting Property Prices Using CatBoost
-## Introduction:
+### Introduction:
 This project focuses on developing a predictive model for real estate property prices using machine learning techniques. Leveraging a dataset of 10,684 property records, the objective is to accurately estimate property prices based on key features such as size, location, condition, and other relevant attributes.
 
 The CatBoostRegressor, known for its efficiency and ability to handle complex datasets, was chosen as the core model. The project involves thorough data preprocessing, feature engineering, and hyperparameter tuning to ensure robust model performance.
 
 The end goal is to provide actionable insights into property valuation, helping stakeholders like real estate professionals, urban planners, and investors make data-driven decisions. By optimizing the prediction process, the model aims to deliver high accuracy while maintaining interpretability and scalability.
 
-## Data Features:
+### Data Features:
 A total of 10,684 records were cleaned of outliers and missing values. The dataset contains 18 features, including 5 engineered ones:
 
 1. **Price (Target)**: Represents the property cost.
@@ -28,7 +28,7 @@ A total of 10,684 records were cleaned of outliers and missing values. The datas
 17. **Avg_price** (engineered): Average property price in the region.
 18. **Bedrooms_per_area** (engineered): Ratio of bedrooms to living area.
 
-# The Model:
+### The Model:
 The model is saved as `model_Hussain.joblib`. Parameters were chosen based on hyperparameter tuning (details in `CatBoost_Building.ipynb`):
 
 - **iterations=3000**: Number of boosting iterations.
@@ -51,7 +51,7 @@ Feature importance analysis highlights:
 - **Normalized SHAP Feature Importances**: Highlights the significance of individual features.
 - **Bar Charts**: Show detailed importance rankings.
 
-## Model Performance:
+### Model Performance:
 
 ### Metrics on Test Data:
 - **MAE**: 71,859.98
