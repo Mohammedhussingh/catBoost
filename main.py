@@ -32,7 +32,7 @@ Workflow:
 3. **Model Training**:
    - The processed dataset is passed to the `Model1` class for normalization, splitting, 
      training, and evaluation using CatBoostRegressor.
-   - The model is evaluated using RMSE and R² metrics.
+   - The model is evaluated using metrics such as MAE, RMSE, R², MAPE, and sMAPE.
 
 Dependencies:
 -------------
