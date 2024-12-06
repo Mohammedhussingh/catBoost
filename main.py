@@ -70,6 +70,6 @@ DE.Save()
 
 Data_link = "ED.csv"
 
-X = Model1(Data_link)  # Instantiate the object
-X.fit()  # Call methods on the object
-X.predict_()  # Call the predict method
+X1 = Model1(Data_link)  # Instantiate the object
+X1.fit()  # Call methods on the object
+X1.predict_()  # Call the predict method

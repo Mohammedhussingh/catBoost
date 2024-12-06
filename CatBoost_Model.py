@@ -120,7 +120,7 @@ class Data_Prep:
 
     def Spliter(self):
         X_ = self.Normalize_Data()
-        y1 = np.log(self.y)
+        y1 = self.y
 
         X_train, X_test, y_train, y_test = train_test_split(
             X_, y1, test_size=0.2, random_state=42
@@ -128,22 +128,30 @@ class Data_Prep:
         return X_train, X_test, y_train, y_test
 
 
-class Model1:
+from catboost import CatBoostRegressor
+import numpy as np
+from joblib import dump
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score,
+)
 
+
+class Model1:
     def __init__(self, link1) -> None:
         # Initialize CatBoostRegressor
         self.link = link1
-        self.model = CatBoostRegressor(
-            iterations=3000,  # Number of boosting iterations
-            learning_rate=0.03,  # Learning rate
-            depth=6,  # Depth of the trees
-            random_seed=42,  # Random seed for reproducibility
-            eval_metric="RMSE",
-        )
+        self.model = CatBoostRegressor(iterations=3000,  # Number of boosting iterations
+                          learning_rate=0.01,  # Learning rate
+                          depth=5,  # Depth of the trees
+                          random_seed=42  # Random seed for reproducibility  
+                          ,eval_metric="RMSE",
+                          l2_leaf_reg=10,
+                          min_data_in_leaf=10
+                          )
         Data_obj = Data_Prep(self.link)
         self.X_train, self.X_test, self.y_train, self.y_test = Data_obj.Spliter()
-
-        pass
 
     def fit(self):
         # Log-transform the target variable
@@ -154,23 +162,35 @@ class Model1:
         dump(self.model, "model_Hussain.joblib")
         return self.model
 
+    def evaluate_metrics(self, y_true, y_pred, dataset_name="Test"):
+        # Calculate metrics
+        mae = mean_absolute_error(y_true, y_pred)
+        rmse = mean_squared_error(y_true, y_pred, squared=False)
+        r2 = r2_score(y_true, y_pred)
+        mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+        smape = np.mean(
+            2 * np.abs(y_true - y_pred) / (np.abs(y_true) + np.abs(y_pred))
+        ) * 100
+
+        # Print results
+        print(f"{dataset_name} Metrics:")
+        print(f"  MAE: {mae:.4f}")
+        print(f"  RMSE: {rmse:.4f}")
+        print(f"  R²: {r2:.4f}")
+        print(f"  MAPE: {mape:.2f}%")
+        print(f"  sMAPE: {smape:.2f}%")
+        print()
+        return mae, rmse, r2, mape, smape
+
     def predict_(self):
-        from sklearn.metrics import r2_score
+        # Predict directly on the original scale
+        y_train_pred = np.expm1(self.model.predict(self.X_train))
+        y_test_pred = np.expm1(self.model.predict(self.X_test))
 
-        y_pred = self.model.predict(self.X_test)
-        y_test_log = np.log1p(self.y_test)
-        #
-        # Calculate RMSE score
-        rmse = mean_squared_error(y_test_log, y_pred, squared=False)
-        print(f"RMSE on Test Set: {rmse}")
-
-        # Calculate R² score on test data
-        r2 = r2_score(y_test_log, y_pred)
-        print(f"R² on Test Set: {r2}")
-
+        print("Evaluating Metrics on Original Scale:")
+        self.evaluate_metrics(self.y_train, y_train_pred, dataset_name="Training")
+        self.evaluate_metrics(self.y_test, y_test_pred, dataset_name="Test")
         return
-
-
 Data_link = "ED.csv"
 
 Model = Model1(Data_link)
