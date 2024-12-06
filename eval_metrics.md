@@ -1,107 +1,57 @@
-# Introduction:
-The CatBoostRegressor is optimized for high performance and can handle categorical data well, but in your case, it is being used with numerical data (since it’s a regression task and based on the requirements of the project). The used data is calculated from the data-extracting features phase.
+# Project Overview: Predicting Property Prices Using CatBoost
+## Introduction:
+This project focuses on developing a predictive model for real estate property prices using machine learning techniques. Leveraging a dataset of 10,684 property records, the objective is to accurately estimate property prices based on key features such as size, location, condition, and other relevant attributes.
 
-# Data Features:
-A total of 10,684 data records have been cleaned of outliers, and there are no missing or non-values, with 18 features( 5 engineerd):
+The CatBoostRegressor, known for its efficiency and ability to handle complex datasets, was chosen as the core model. The project involves thorough data preprocessing, feature engineering, and hyperparameter tuning to ensure robust model performance.
 
-1. **Price (Target)**: The dependent variable you're trying to predict, representing the cost of a property.
+The end goal is to provide actionable insights into property valuation, helping stakeholders like real estate professionals, urban planners, and investors make data-driven decisions. By optimizing the prediction process, the model aims to deliver high accuracy while maintaining interpretability and scalability.
 
-2. **Bedrooms**: The number of bedrooms in the property. More bedrooms typically correlate with higher property prices.
+## Data Features:
+A total of 10,684 records were cleaned of outliers and missing values. The dataset contains 18 features, including 5 engineered ones:
 
-3. **Living_Area**: The size of the living space in the property (e.g., square meters). Larger living areas generally increase property price.
-
-4. **Is_Equiped_Kitchen**: A binary feature indicating whether the property has an equipped kitchen. Properties with an equipped kitchen can be valued higher.
-
-5. **Terrace**: A binary feature indicating if the property has a terrace. This can add value, depending on the property location.
-
-6. **Garden**: A binary feature indicating the presence of a garden. Similar to terrace, gardens can increase a property’s value.
-
-7. **State**: Refers to the condition of the property (e.g., new, refurbished, or old). The state of the property influences its market price.
-
-8. **Facades**: The number of building facades or exterior walls. More facades could indicate a larger or more aesthetically desirable property.
-
-9. **Locality_encoded**: A numerical encoding of the property’s locality, which helps represent the location's impact on the price.
-
-10. **Type_encoded**: Encodes the property type (e.g., apartment, house), which can significantly affect its price.
-
-11. **SubType_encoded**: Encodes the specific subtype of the property (e.g., duplex, penthouse), which also influences pricing.
-
-12. **Prov_encoded**: Encodes the province or region within a country where the property is located, which may influence the price due to local economic conditions.
-
-13. **Region_encoded**: Similar to the province but might refer to a larger geographical area (e.g., urban vs rural).
-
-14. **Is_On_Coast**(engineerd):: A binary feature indicating whether the property is located on the coast. Coastal properties often have higher prices due to location desirability.
-
-15. **GDP**(engineerd):: The Gross Domestic Product of the province, reflecting the overall economic health of the place, which could influence property prices.
-
-16. **Avg_rent**(engineerd): The average rental price in the area. Higher average rents typically indicate higher property values .
-
-17. **Avg price**(engineerd):: The average price of properties in the locality or region. It gives a reference for pricing trends (obtained from an external source, not from the data itself).
-
-18. **Bedrooms_per_area**(engineerd): The ratio of the number of bedrooms to the living area, which can affect property price by indicating space efficiency.
-
-
+1. **Price (Target)**: Represents the property cost.
+2. **Bedrooms**: Number of bedrooms.
+3. **Living_Area**: Living space size (e.g., square meters).
+4. **Is_Equiped_Kitchen**: Binary feature indicating an equipped kitchen.
+5. **Terrace**: Binary feature for terrace presence.
+6. **Garden**: Binary feature for garden presence.
+7. **State**: Property condition (new, refurbished, old).
+8. **Facades**: Number of building facades.
+9. **Locality_encoded**: Encoded representation of property locality.
+10. **Type_encoded**: Encoded property type (apartment, house).
+11. **SubType_encoded**: Encoded property subtype (e.g., penthouse).
+12. **Prov_encoded**: Encoded province.
+13. **Region_encoded**: Encoded geographical area (e.g., urban vs. rural).
+14. **Is_On_Coast** (engineered): Binary feature indicating coastal location.
+15. **GDP** (engineered): Economic health of the province.
+16. **Avg_rent** (engineered): Average rental price in the area.
+17. **Avg_price** (engineered): Average property price in the region.
+18. **Bedrooms_per_area** (engineered): Ratio of bedrooms to living area.
 
 # The Model:
-My modeld saved in model_Hussain.joblib  with parametrs chosen based on hyperparameter tuining (you can find it in CatBoost_Buliding.ipynb ) 
+The model is saved as `model_Hussain.joblib`. Parameters were chosen based on hyperparameter tuning (details in `CatBoost_Building.ipynb`):
 
+- **iterations=3000**: Number of boosting iterations.
+- **learning_rate=0.01**: Step size per iteration.
+- **depth=5**: Tree depth for complexity balance.
+- **random_seed=42**: Ensures reproducibility.
+- **eval_metric="RMSE"**: Metric to optimize regression accuracy.
+- **l2_leaf_reg=10**: Regularization to prevent overfitting.
+- **min_data_in_leaf=10**: Minimum samples in each leaf to avoid noise-fitting.
 
-- **iterations=3000**: 
-  - Defines the number of boosting iterations (trees). 
+### Feature Importances:
+Feature importance analysis highlights:
+1. **Living_Area**: Most significant, mean SHAP value 0.19.
+2. **State**: SHAP value 0.07.
+3. **SubType_encoded**, **Bedrooms**, **Avg_rent**, and **Avg_price**: SHAP value 0.05.
+4. **Locality_encoded**, **Facades**, **Region_encoded**, and **GDP**: Moderate importance.
+5. **Type_encoded**, **Is_Equiped_Kitchen**, and others: Minimal impact.
 
-- **learning_rate=0.01**: 
-  - Controls the step size for each iteration.
+### Visual Representations:
+- **Normalized SHAP Feature Importances**: Highlights the significance of individual features.
+- **Bar Charts**: Show detailed importance rankings.
 
-- **depth=5**: 
-  - Controls the complexity of the decision trees. A depth of 5 strikes a balance, capturing enough complexity while avoiding overfitting.
-
-- **random_seed=42**: 
-  - Ensures reproducibility of the results. A fixed random seed allows the same outcomes across multiple runs of the model.
-
-- **eval_metric="RMSE"**: 
-  - The evaluation metric for the model. RMSE penalizes larger errors, making it useful for regression tasks to optimize the prediction accuracy.
-
-- **l2_leaf_reg=10**: 
-  - Regularization term to prevent overfitting. 
-
-- **min_data_in_leaf=10**: 
-  - Defines the minimum number of samples in each leaf. Ensures that the model does not overfit to noise by requiring a reasonable number of data points per leaf.
-
-
-### Feature Importances
-
-The following bar chart displays the importance of different features in predicting the target variable (Price). Features like **Living_Area**, **Locality_encoded**, and **State** have the highest importance, while **Garden** and **Is_Equiped_Kitchen** have lower importance.
-
-![normalized_shap_importance_with_labels](https://github.com/user-attachments/assets/17c7ea87-8ef6-4bff-b74e-1527cc9c608e)
-## SHAP Feature Importances
-
-The following features have the most significant impact on the model's output, based on their mean SHAP values:
-
-1. **Living_Area**: This feature has the most significant impact on the model's output, with a mean SHAP value of 0.19.
-2. **State**: The second most influential feature, with a SHAP value of 0.07.
-3. **SubType_encoded**: Contributes a SHAP value of 0.05.
-4. **Bedrooms**: Also contributing 0.05, alongside other features like **Avg_rent** and **Avg_price**.
-
-Other notable features include:
-- **Locality_encoded**: 0.05
-- **Facades**: 0.04
-- **Region_encoded**: 0.02
-- **Terrace**: 0.02
-- **GDP**: 0.02
-- **Bedrooms_per_area**: 0.01
-- **Type_encoded**, **Prov_encoded**, **Is_Equiped_Kitchen**, **Garden**, and **Is_On_Coast** have a relatively minimal impact.
-
-### Visual Representation
-
-
-
-![e325bc1a-fb74-4e9a-aba7-6a46b550ad6b](https://github.com/user-attachments/assets/796485c8-d62d-46e2-ab01-e15047591959)
-
-
-
-### The model performance:
-
-## Model Performance Metrics
+## Model Performance:
 
 ### Metrics on Test Data:
 - **MAE**: 71,859.98
@@ -118,15 +68,10 @@ Other notable features include:
 - **sMAPE**: 18.28%
 
 ### Explanation:
-The performance on the test data shows a moderate fit, with an **R²** of 0.7134, indicating that around 71.34% of the variance in the test set is explained by the model. However, the **MAE** and **RMSE** are still relatively high, suggesting potential areas for improvement in model accuracy.
+The test data's **R²** of 0.7134 indicates a moderate fit, while the **MAE** and **RMSE** suggest room for improvement. Training data shows similar performance (**R²**: 0.7429), but the slightly higher **MAPE** hints at overfitting. Attempts to add more features led to overfitting due to dataset size, so these features were removed.
 
-For the training data, the model's performance is somewhat similar, with an **R²** of 0.7429, which reflects that the model explains about 74.29% of the variance in the training data. The **MAE** and **RMSE** are lower compared to the test data, showing that the model is more closely fitted to the training set. The slight increase in **MAPE** and **sMAPE** indicates that the model is likely experiencing some degree of overfitting.
+## CatBoost Model Performance:
 
-Given that the data was split into 80% for training and 20% for testing, the discrepancies between the two sets suggest that further tuning is needed to reduce overfitting and improve generalization to unseen data. I experimented with adding more features to improve the model’s performance, but this approach led to overfitting due to the relatively small size of the dataset. As a result, I removed the additional features to prevent the model from being too tightly fitted to the training data, which could compromise its ability to generalize well on new data.
-
-# CatBoost Model Performance
-
-- **Training Performance**: 4.3 seconds (since all data are numerical).
-- **Cross-validation (for all model parameters with at least 4 for each) & Hyperparameter Tuning**: Takes additional time during these processes (3-7 minutes).
+- **Training Performance**: 4.3 seconds (all data are numerical).
+- **Cross-validation** (for all model parameters, at least 4 values per parameter) & **Hyperparameter Tuning**: 3-7 minutes.
 - **Prediction**: Instant.
-
