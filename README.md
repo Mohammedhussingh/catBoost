@@ -35,8 +35,14 @@ python main.py
 - **Key Learning**: Feature selection significantly affects model accuracy.
 
 ### Evaluation Metrics
+
 - **Root Mean Squared Error (RMSE)**: Measures prediction error magnitude.
 - **R² Score**: Indicates the proportion of variance explained by the model.
+- **Mean Absolute Error (MAE)**: Measures the average magnitude of errors in predictions, without considering their direction.
+- **RMSE (on training/test)**: Measures the root mean squared error for both the training and test datasets.
+- **R² (on training/test)**: Indicates the proportion of variance explained by the model on both the training and test datasets.
+- **Mean Absolute Percentage Error (MAPE)**: Measures the accuracy of predictions as a percentage, providing insight into relative error.
+- **Symmetric Mean Absolute Percentage Error (sMAPE)**: Similar to MAPE but reduces bias in the percentage error for extreme values in predictions..
 
 ## Challenges and Limitations
 
