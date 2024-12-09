@@ -57,9 +57,13 @@ The model is saved as `model_Hussain.joblib`. Parameters were chosen based on hy
 - **eval_metric="RMSE"**: Metric to optimize regression accuracy.
 - **l2_leaf_reg=10**: Regularization to prevent overfitting.
 - **min_data_in_leaf=10**: Minimum samples in each leaf to avoid noise-fitting.
+  
 
 ![Screenshot from 2024-12-09 10-08-14](https://github.com/user-attachments/assets/c2e9f09c-18ff-4afa-909e-6d782a4f907d)
 part of the initial decision tree 
+
+
+
 
 
 ### Feature Importances:
