@@ -20,6 +20,17 @@ Ensure the following are installed:
 git clone https:[//github.com//challenge-regression.git](https://github.com/Mohammedhussingh/catBoost)
 
 ```
+### Files:
+#### Python Files
+1. **`main.py`**: Runs the whole program.  
+2. **`Catboost_Model.py`**: Contains the model training and prediction logic, built with hyperparameter tuning.  
+3. **`Data_preparation.py`**: Handles data cleaning and feature engineering.
+
+   
+#### Data Files
+1. `Final_cleaned_Data.csv` - Raw data file for preprocessing.
+2. `Data_Engineering_pre.csv` - Intermediate file after cleaning.
+3. `ED.csv` - Final dataset after feature engineering.
 
 
 ### Usage
