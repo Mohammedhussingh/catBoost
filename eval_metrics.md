@@ -89,7 +89,7 @@ Feature importance analysis highlights:
 - **sMAPE**: 18.28%
 
 ### Explanation:
-The test data's **R²** of 0.7134 indicates a moderate fit, while the **MAE** and **RMSE** suggest room for improvement. Training data shows similar performance (**R²**: 0.7429), but the slightly higher **MAPE** hints at overfitting. Attempts to add more features led to overfitting due to dataset size, so these features were removed.
+The test data's **R²** of 0.7134 indicates a moderate fit, while the **MAE** and **RMSE** suggest room for improvement. Training data shows similar performance (**R²**: 0.7429) as Test data (**R²**: 0.7134) so mosr probably we dont have overfiting here.Attempts to add more features led to overfitting due to dataset size, so these features were removed.
 
 ## CatBoost Model Performance:
 
@@ -98,4 +98,4 @@ The test data's **R²** of 0.7134 indicates a moderate fit, while the **MAE** an
 - **Prediction**: Instant.
 
 ## Note:
-While the model is suitable and performs well, the scale and quality of the data or potentially the techniques used for data collection—limit its effectiveness. This is a key weakness of the model. With access to better-quality data, significantly improved performance could be achieved.
+While this model (CatBoost) is suitable and performs well, the scale and quality of the data or potentially the techniques used for data collection—limit its effectiveness. This is a key weakness of the model. With access to better-quality data and wider scale, significantly improved performance could be achieved.
